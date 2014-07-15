@@ -13,9 +13,9 @@ import android.view.WindowManager;
 /**
  * LusumdyScreen
  */
-public class LusumdyScreen extends CordovaPlugin {
+public class LusumdyRTLSDR extends CordovaPlugin {
 
-	public static final String TAG = "LusumdyScreen";
+	public static final String TAG = "LusumdyRTLSDR";
 
 
 	/**
@@ -25,20 +25,11 @@ public class LusumdyScreen extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		boolean result = false;
 
+		Log.d(TAG, action);
+
 		switch(true) {
-			case action.equals("keepOn"): 
-				Log.i(TAG, "KeepOn");
-				keepOn();
-				break;
-
-			case action.equals("setScreenBrightness"):
-				Log.i(TAG, "setScreenBrightness");
-				//setScreenBrightness(args, callbackContext);
-				break;
-
-			case action.equals("getScreenBrightness"):
-				Log.i(TAG, "getScreenBrightness");
-				//getBrightness(args, callbackContext);
+			case action.equals("initialize"): 
+				initialize(args);
 				break;
 
 			default:
@@ -49,14 +40,19 @@ public class LusumdyScreen extends CordovaPlugin {
 	}
 
 	/**
-      * (keepOn)
+      * (initialize)
 	  */
-	private boolean keepOn() {
+	private boolean initialize(args) {
+		// arguments
+		int AIX_REQCODE = 1, AIX_ARGUMENTS = 0;
+		
 		// initialize
 		Activity activity = cordova.getActivity();
 
-		// set flags
-		activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		// start activity
+		*startActivityForResult(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("iqsrc://"+args.getString(AIX_ARGUMENTS), args.getInt(AIX_REQCODE));
+
+		// parse result
 
 		// return
 		return true;
