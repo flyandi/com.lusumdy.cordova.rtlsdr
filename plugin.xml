@@ -6,7 +6,7 @@
     <name>LusumdyRTLSDR</name>
 
     <js-module src="www/lusumdyrtlsdr.js" name="LusumdyRTLSDR">
-        <clobbers target="LusumdyRTLSDR" />
+        <clobbers target="window.LusumdyRTLSDR" />
     </js-module>
     
     <info>
@@ -17,11 +17,12 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="LusumdyRTLSDR">
-                <param name="android-package" value="com.lusumdy.cordova.rtlsdr"/>
+                <param name="android-package" value="com.lusumdy.cordova.rtlsdr.LusumdyRTLSDR"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+            <uses-permission android:name="android.permission.INTERNET" />
         </config-file>
 	   <source-file src="src/android/LusumdyRTLSDR.java" target-dir="src/com/lusumdy/cordova/rtlsdr" />
     </platform>

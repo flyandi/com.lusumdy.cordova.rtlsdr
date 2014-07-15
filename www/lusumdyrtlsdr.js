@@ -25,11 +25,10 @@ var LusumdyRTLSDR = {
  	/** 
  	  * open
  	  */
- 	open: function(settings, successCallback, errorCallback) {
+ 	open: function(connectionParams, successCallback, errorCallback) {
  		// format 
-
- 		return cordova.exec(successCallback, errorCallback, libName, 'initialize', [
- 			this.requestId,
+ 		return cordova.exec(successCallback, errorCallback, libName, 'open', [
+ 			connectionParams
  		]);
  	},
 

@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "name": "com.lusumdy.cordova.rtlsdr",
+    "name": "com.lusumdy.cordova.rtlsdr.LusumdyRTLSDR",
     "cordova_name": "LusumdyRTLSDR",
     "description": "RTL-SDR Implementation for Cordova",
     "license": "Apache 2.0",
